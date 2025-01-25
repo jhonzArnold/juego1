@@ -9,7 +9,9 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0; /* Sin márgenes para pantalla completa */
+            overflow-x: auto; /* Permitir desplazamiento horizontal */
             overflow-y: auto; /* Permitir desplazamiento vertical */
+            touch-action: pan-x pan-y; /* Permitir desplazamiento táctil */
         }
         button {
             padding: 10px 20px;
@@ -41,12 +43,11 @@
             height: 100vh; /* Alto completo de la ventana */
             background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
             z-index: 999; /* Asegurarse de que esté encima de otros elementos */
-            overflow: hidden; /* Evitar scroll en el contenedor del iframe */
         }
         .close-button {
             position: absolute;
             top: 20px;
-            right: 20px;
+            left: 20px; /* Cambiado a la izquierda */
             background-color: red;
             color: white;
             border: none;
@@ -84,18 +85,27 @@
 
     <div id="gameSection">
         <h2>Selecciona un Juego</h2>
+        
         <div class="game-container">
             <img src="https://www1.minijuegosgratis.com/v3/games/thumbnails/6411_1.jpg" alt="Juego 1" class="game-image">
+            <p><strong>Juego 1</strong></p>
+            <p>Descripción del juego 1.</p>
             <br>
             <button onclick="playGame('https://y8.com/embed/archer_duel_shadow_fight')">Jugar Online</button>
         </div>
+
         <div class="game-container">
             <img src="https://m.media-amazon.com/images/M/MV5BNzZkNzkxMWEtMjM1ZS00MWVhLTk3ZDctYzBlYWE2OGJkNjg4XkEyXkFqcGc@._V1_.jpg" alt="Juego 2" class="game-image">
+            <p><strong>Juego de calamar </strong></p>
+            <p>jugar modo inclinado</p>
             <br>
             <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/063df6dc6ed14ff49b1030bbca24b373/index.html?utm_source=es.y8.com&utm_medium=greenlight-redlight&utm_campaign=block-and-redirect&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzA2M2RmNmRjNmVkMTRmZjQ5YjEwMzBiYmNhMjRiMzczLz91dG1fc291cmNlPWVzLnk4LmNvbSZ1dG1fbWVkaXVtPWdyZWVubGlnaHQtcmVkbGlnaHQmdXRtX2NhbXBhaWduPWJsb2NrLWFuZC1yZWRpcmVjdCIsInBhcmVudERvbWFpbiI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9')">Jugar Online</button>
         </div>
+
         <div class="game-container">
             <img src="https://via.placeholder.com/100" alt="Juego 3" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
             <br>
             <button onclick="playGame('https://y8.com/embed/another_game')">Jugar Online</button>
         </div>
@@ -105,7 +115,7 @@
     <div id="gameIframe">
         <button class="close-button" onclick="closeGame()">X</button>
         <div class="iframe-container">
-            <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+            <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe> <!-- Agregado sandbox -->
         </div>
     </div>
 
@@ -142,5 +152,3 @@
 
 </body>
 </html>
-
-
