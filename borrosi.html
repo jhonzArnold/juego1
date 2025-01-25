@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Juegos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0; /* Sin márgenes para pantalla completa */
+            overflow: hidden; /* Evitar scroll cuando el juego esté en pantalla completa */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #pdfSection, #gameSection {
+            display: none;
+            margin-top: 20px;
+        }
+        .game-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        .game-image {
+            width: 100px; /* Tamaño de la imagen ajustado para móviles */
+            height: 100px; /* Tamaño de la imagen ajustado para móviles */
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        #gameIframe {
+            display: none;
+            position: fixed; /* Cambiado a fixed para pantalla completa */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Ancho completo de la ventana */
+            height: 100vh; /* Alto completo de la ventana */
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            z-index: 999; /* Asegurarse de que esté encima de otros elementos */
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1000; /* Asegurarse de que esté encima del iframe */
+        }
+        iframe {
+            border: none;
+            width: 100%; /* Ancho completo del iframe */
+            height: 100%; /* Alto completo del iframe */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Página de Juegos</h1>
+    <button id="inicioBtn">Inicio</button>
+    <button id="canalBtn">Canal</button>
+    <button id="pdfBtn">Convertidor de PDF</button>
+
+    <div id="pdfSection">
+        <h2>Convertidor de PDF</h2>
+        <iframe src="https://freepdfworld.com/" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
+
+    <div id="gameSection">
+        <h2>Selecciona un Juego</h2>
+        <div class="game-container">
+            <img src="https://www1.minijuegosgratis.com/v3/games/thumbnails/6411_1.jpg" alt="Juego 1" class="game-image">
+            <br>
+            <button onclick="playGame('https://y8.com/embed/archer_duel_shadow_fight')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://m.media-amazon.com/images/M/MV5BNzZkNzkxMWEtMjM1ZS00MWVhLTk3ZDctYzBlYWE2OGJkNjg4XkEyXkFqcGc@._V1_.jpg" alt="Juego 2" class="game-image">
+            <br>
+            <button onclick="playGame('https://html5.gamedistribution.com/063df6dc6ed14ff49b1030bbca24b373/?utm_source=es.y8.com&utm_medium=greenlight-redlight&utm_campaign=block-and-redirect')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://via.placeholder.com/100" alt="Juego 3" class="game-image">
+            <br>
+            <button onclick="playGame('https://y8.com/embed/another_game')">Jugar Online</button>
+        </div>
+        <!-- Agrega más juegos aquí -->
+    </div>
+
+    <div id="gameIframe">
+        <button class="close-button" onclick="closeGame()">X</button>
+        <iframe id="iframe" src=""></iframe>
+    </div>
+
+    <script>
+        document.getElementById('pdfBtn').onclick = function() {
+            document.getElementById('pdfSection').style.display = 'block'; // Mostrar sección de PDF
+            document.getElementById('gameSection').style.display = 'none'; // Ocultar sección de juegos
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
+        };
+
+        document.getElementById('inicioBtn').onclick = function() {
+            alert('Bienvenido a la página de inicio!');
+            document.getElementById('pdfSection').style.display = 'none'; // Ocultar sección de PDF
+            document.getElementById('gameSection').style.display = 'none'; // Ocultar sección de juegos
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
+        };
+
+        document.getElementById('canalBtn').onclick = function() {
+            document.getElementById('gameSection').style.display = 'block'; // Mostrar sección de juegos
+            document.getElementById('pdfSection').style.display = 'none'; // Ocultar sección de PDF
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
+        };
+
+        function playGame(url) {
+            document.getElementById('iframe').src = url; // Establecer la URL del juego
+            document.getElementById('gameIframe').style.display = 'block'; // Mostrar el iframe del juego
+        }
+
+        function closeGame() {
+            document.getElementById('iframe').src = ""; // Limpiar la URL del iframe
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar el iframe del juego
+        }
+    </script>
+
+</body>
+</html>
