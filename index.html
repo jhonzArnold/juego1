@@ -2,14 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Página de Juegos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0; /* Sin márgenes para pantalla completa */
-            overflow: hidden; /* Evitar scroll cuando el juego esté en pantalla completa */
+            overflow-y: auto; /* Permitir desplazamiento vertical */
         }
         button {
             padding: 10px 20px;
@@ -96,7 +96,7 @@
 
     <div id="gameIframe">
         <button class="close-button" onclick="closeGame()">X</button>
-        <iframe id="iframe" src=""></iframe>
+        <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts"></iframe>
     </div>
 
     <script>
@@ -132,3 +132,4 @@
 
 </body>
 </html>
+
