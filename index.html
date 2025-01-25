@@ -41,6 +41,7 @@
             height: 100vh; /* Alto completo de la ventana */
             background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
             z-index: 999; /* Asegurarse de que esté encima de otros elementos */
+            overflow: hidden; /* Evitar scroll en el contenedor del iframe */
         }
         .close-button {
             position: absolute;
@@ -55,10 +56,17 @@
             cursor: pointer;
             z-index: 1000; /* Asegurarse de que esté encima del iframe */
         }
+        .iframe-container {
+            width: 100%; /* Ancho completo del contenedor */
+            height: 100%; /* Alto completo del contenedor */
+            overflow: auto; /* Permitir desplazamiento */
+        }
         iframe {
             border: none;
             width: 100%; /* Ancho completo del iframe */
             height: 100%; /* Alto completo del iframe */
+            min-width: 100%; /* Asegurar que el iframe no se reduzca */
+            min-height: 100%; /* Asegurar que el iframe no se reduzca */
         }
     </style>
 </head>
@@ -84,7 +92,7 @@
         <div class="game-container">
             <img src="https://m.media-amazon.com/images/M/MV5BNzZkNzkxMWEtMjM1ZS00MWVhLTk3ZDctYzBlYWE2OGJkNjg4XkEyXkFqcGc@._V1_.jpg" alt="Juego 2" class="game-image">
             <br>
-            <button onclick="playGame('https://html5.gamedistribution.com/063df6dc6ed14ff49b1030bbca24b373/?utm_source=es.y8.com&utm_medium=greenlight-redlight&utm_campaign=block-and-redirect')">Jugar Online</button>
+            <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/063df6dc6ed14ff49b1030bbca24b373/index.html?utm_source=es.y8.com&utm_medium=greenlight-redlight&utm_campaign=block-and-redirect&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzA2M2RmNmRjNmVkMTRmZjQ5YjEwMzBiYmNhMjRiMzczLz91dG1fc291cmNlPWVzLnk4LmNvbSZ1dG1fbWVkaXVtPWdyZWVubGlnaHQtcmVkbGlnaHQmdXRtX2NhbXBhaWduPWJsb2NrLWFuZC1yZWRpcmVjdCIsInBhcmVudERvbWFpbiI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9')">Jugar Online</button>
         </div>
         <div class="game-container">
             <img src="https://via.placeholder.com/100" alt="Juego 3" class="game-image">
@@ -96,7 +104,9 @@
 
     <div id="gameIframe">
         <button class="close-button" onclick="closeGame()">X</button>
-        <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+        <div class="iframe-container">
+            <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+        </div>
     </div>
 
     <script>
@@ -132,4 +142,5 @@
 
 </body>
 </html>
+
 
