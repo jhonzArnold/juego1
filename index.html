@@ -8,20 +8,10 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            touch-action: pan-x pan-y;
-            background-color: #f0f0f0;
-        }
-        #content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            transform-origin: 0 0; /* Para hacer el zoom desde la esquina superior izquierda */
+            margin: 0; /* Sin márgenes para pantalla completa */
+            overflow-x: auto; /* Permitir desplazamiento horizontal */
+            overflow-y: auto; /* Permitir desplazamiento vertical */
+            touch-action: pan-x pan-y; /* Permitir desplazamiento táctil */
         }
         button {
             padding: 10px 20px;
@@ -39,25 +29,25 @@
             text-align: center;
         }
         .game-image {
-            width: 100px;
-            height: 100px;
+            width: 100px; /* Tamaño de la imagen ajustado para móviles */
+            height: 100px; /* Tamaño de la imagen ajustado para móviles */
             border: 2px solid #ccc;
             border-radius: 10px;
         }
         #gameIframe {
             display: none;
-            position: fixed;
+            position: fixed; /* Cambiado a fixed para pantalla completa */
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 999;
+            width: 100vw; /* Ancho completo de la ventana */
+            height: 100vh; /* Alto completo de la ventana */
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            z-index: 999; /* Asegurarse de que esté encima de otros elementos */
         }
         .close-button {
             position: absolute;
             top: 20px;
-            left: 20px;
+            left: 20px; /* Cambiado a la izquierda */
             background-color: red;
             color: white;
             border: none;
@@ -65,127 +55,132 @@
             width: 30px;
             height: 30px;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1000; /* Asegurarse de que esté encima del iframe */
         }
         .iframe-container {
-            width: 100%;
-            height: 100%;
-            overflow: auto;
+            width: 100%; /* Ancho completo del contenedor */
+            height: 100%; /* Alto completo del contenedor */
+            overflow: auto; /* Permitir desplazamiento */
         }
         iframe {
             border: none;
-            width: 100%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 100%;
+            width: 100%; /* Ancho completo del iframe */
+            height: 100%; /* Alto completo del iframe */
+            min-width: 100%; /* Asegurar que el iframe no se reduzca */
+            min-height: 100%; /* Asegurar que el iframe no se reduzca */
         }
     </style>
 </head>
 <body>
 
-    <div id="content">
-        <h1>Página de Juegos</h1>
-        <button id="inicioBtn">Inicio</button>
-        <button id="canalBtn">Juego</button>
-        <button id="pdfBtn">Convertidor de PDF</button>
+    <h1>Página de Juegos</h1>
+    <button id="inicioBtn">Inicio</button>
+    <button id="canalBtn">Juego</button>
+    <button id="pdfBtn">Convertidor de PDF</button>
 
-        <div id="pdfSection">
-            <h2>Convertidor de PDF</h2>
-            <iframe src="https://freepdfworld.com/" style="width: 100%; height: 600px; border: none;" sandbox="allow-same-origin allow-scripts"></iframe>
+    <div id="pdfSection">
+        <h2>Convertidor de PDF</h2>
+        <iframe src="https://freepdfworld.com/" style="width: 100%; height: 600px; border: none;" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <div id="gameSection">
+        <h2>Selecciona un Juego</h2>
+        
+        <div class="game-container">
+            <img src="https://www1.minijuegosgratis.com/v3/games/thumbnails/6411_1.jpg" alt="Juego 1" class="game-image">
+            <p><strong>Juego 1</strong></p>
+            <p>Descripción del juego 1.</p>
+            <br>
+            <button onclick="playGame('https://y8.com/embed/archer_duel_shadow_fight')">Jugar Online</button>
         </div>
 
-        <div id="gameSection">
-            <h2>Selecciona un Juego</h2>
-            
-            <div class="game-container">
-                <img src="https://www1.minijuegosgratis.com/v3/games/thumbnails/6411_1.jpg" alt="Juego 1" class="game-image">
-                <p><strong>Juego 1</strong></p>
-                <button onclick="playGame('https://y8.com/embed/archer_duel_shadow_fight')">Jugar Online</button>
-            </div>
-
-            <div class="game-container">
-                <img src="https://m.media-amazon.com/images/M/MV5BNzZkNzkxMWEtMjM1ZS00MWVhLTk3ZDctYzBlYWE2OGJkNjg4XkEyXkFqcGc@._V1_.jpg" alt="Juego 2" class="game-image">
-                <p><strong>Juego de calamar </strong></p>
-                <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/063df6dc6ed14ff49b1030bbca24b373/index.html')">Jugar Online</button>
-            </div>
-
-            <div class="game-container">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 3" class="game-image">
-                <p><strong>Juego 3</strong></p>
-                <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/26254014df204352add3655eced82cb6/index.html')">Jugar Online</button>
-            </div>
+        <div class="game-container">
+            <img src="https://m.media-amazon.com/images/M/MV5BNzZkNzkxMWEtMjM1ZS00MWVhLTk3ZDctYzBlYWE2OGJkNjg4XkEyXkFqcGc@._V1_.jpg" alt="Juego 2" class="game-image">
+            <p><strong>Juego de calamar </strong></p>
+            <p>jugar modo inclinado</p>
+            <br>
+            <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/063df6dc6ed14ff49b1030bbca24b373/index.html?utm_source=es.y8.com&utm_medium=greenlight-redlight&utm_campaign=block-and-redirect&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzA2M2RmNmRjNmVkMTRmZjQ5YjEwMzBiYmNhMjRiMzczLz91dG1fc291cmNlPWVzLnk4LmNvbSZ1dG1fbWVkaXVtPWdyZWVubGlnaHQtcmVkbGlnaHQmdXRtX2NhbXBhaWduPWJsb2NrLWFuZC1yZWRpcmVjdCIsInBhcmVudERvbWFpbiI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidG9wRG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJoYXNJbXByZXNzaW9uIjpmYWxzZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xNyJ9')">Jugar Online</button>
         </div>
 
-        <div id="gameIframe">
-            <button class="close-button" onclick="closeGame()">X</button>
-            <div class="iframe-container">
-                <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
-            </div>
+        <div class="game-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 3" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
+            <br>
+            <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/26254014df204352add3655eced82cb6/index.html?utm_source=es.y8.com&utm_medium=run-destiny-choice&utm_campaign=block-and-redirect&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2h0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tLzI2MjU0MDE0ZGYyMDQzNTJhZGQzNjU1ZWNlZDgyY2I2Lz91dG1fc291cmNlPWVzLnk4LmNvbSZ1dG1fbWVkaXVtPXJ1bi1kZXN0aW55LWNob2ljZSZ1dG1fY2FtcGFpZ249YmxvY2stYW5kLXJlZGlyZWN0IiwicGFyZW50RG9tYWluIjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ0b3BEb21haW4iOiJodG1sNS5nYW1lZGlzdHJpYnV0aW9uLmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 4" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
+            <br>
+            <button onclick="playGame('https://storage.y8.com/y8-studio/html5/toni/girly_old_european_v2412091/?key=y8&value=default')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 4" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
+            <br>
+            <button onclick="playGame('https://scratch.mit.edu/projects/470366596/embed?key=y8&value=default')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 4" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
+            <br>
+            <button onclick="playGame('https://scratch.mit.edu/projects/470366596/embed?key=y8&value=default')">Jugar Online</button>
+        </div>
+        <div class="game-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAMnAh1xQs1ufSrzT-itz4VKQxThuYLyubcA&s" alt="Juego 4" class="game-image">
+            <p><strong>Juego 3</strong></p>
+            <p>Descripción del juego 3.</p>
+            <br>
+            <button onclick="playGame('https://html5.gamedistribution.com/rvvASMiM/c5bb64698a3e49289784deca52e053b9/index.html?gd_sdk_referrer_url=https%3A%2F%2Fes.y8.com%2Fgames%2Fperfect_sniper_3d&key=y8&value=default&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL2VzLnk4LmNvbS9nYW1lcy9wZXJmZWN0X3NuaXBlcl8zZCIsInBhcmVudERvbWFpbiI6ImVzLnk4LmNvbSIsInRvcERvbWFpbiI6ImVzLnk4LmNvbSIsImhhc0ltcHJlc3Npb24iOmZhbHNlLCJsb2FkZXJFbmFibGVkIjp0cnVlLCJob3N0IjoiaHRtbDUuZ2FtZWRpc3RyaWJ1dGlvbi5jb20iLCJ2ZXJzaW9uIjoiMS41LjE3In0%253D')">Jugar Online</button>
+        </div>
+        <!-- Agrega más juegos aquí --> 
+
+
+
+
+        
+    </div>
+
+    <div id="gameIframe">
+        <button class="close-button" onclick="closeGame()">X</button>
+        <div class="iframe-container">
+            <iframe id="iframe" src="" sandbox="allow-same-origin allow-scripts allow-popups"></iframe> <!-- Agregado sandbox -->
         </div>
     </div>
 
     <script>
         document.getElementById('pdfBtn').onclick = function() {
-            document.getElementById('pdfSection').style.display = 'block';
-            document.getElementById('gameSection').style.display = 'none';
-            document.getElementById('gameIframe').style.display = 'none';
+            document.getElementById('pdfSection').style.display = 'block'; // Mostrar sección de PDF
+            document.getElementById('gameSection').style.display = 'none'; // Ocultar sección de juegos
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
         };
 
         document.getElementById('inicioBtn').onclick = function() {
             alert('Bienvenido a la página de inicio!');
-            document.getElementById('pdfSection').style.display = 'none';
-            document.getElementById('gameSection').style.display = 'none';
-            document.getElementById('gameIframe').style.display = 'none';
+            document.getElementById('pdfSection').style.display = 'none'; // Ocultar sección de PDF
+            document.getElementById('gameSection').style.display = 'none'; // Ocultar sección de juegos
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
         };
 
         document.getElementById('canalBtn').onclick = function() {
-            document.getElementById('gameSection').style.display = 'block';
-            document.getElementById('pdfSection').style.display = 'none';
-            document.getElementById('gameIframe').style.display = 'none';
+            document.getElementById('gameSection').style.display = 'block'; // Mostrar sección de juegos
+            document.getElementById('pdfSection').style.display = 'none'; // Ocultar sección de PDF
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar iframe del juego
         };
 
         function playGame(url) {
-            document.getElementById('iframe').src = url;
-            document.getElementById('gameIframe').style.display = 'block';
+            document.getElementById('iframe').src = url; // Establecer la URL del juego
+            document.getElementById('gameIframe').style.display = 'block'; // Mostrar el iframe del juego
         }
 
         function closeGame() {
-            document.getElementById('iframe').src = "";
-            document.getElementById('gameIframe').style.display = 'none';
+            document.getElementById('iframe').src = ""; // Limpiar la URL del iframe
+            document.getElementById('gameIframe').style.display = 'none'; // Ocultar el iframe del juego
         }
-
-        // Función para manejar el zoom y el movimiento
-        let scale = 1;
-        let content = document.getElementById('content');
-
-        window.addEventListener('wheel', function(event) {
-            if (event.ctrlKey) { // Si presionamos Ctrl + rueda del ratón, hacer zoom
-                event.preventDefault();
-                scale += event.deltaY * -0.01; // Ajustar el factor de zoom
-                scale = Math.min(Math.max(0.5, scale), 3); // Limitar el zoom entre 50% y 300%
-                content.style.transform = `scale(${scale})`;
-            }
-        });
-
-        let isDragging = false;
-        let offsetX, offsetY;
-
-        content.addEventListener('mousedown', function(e) {
-            isDragging = true;
-            offsetX = e.clientX - content.offsetLeft;
-            offsetY = e.clientY - content.offsetTop;
-        });
-
-        window.addEventListener('mousemove', function(e) {
-            if (isDragging) {
-                content.style.left = `${e.clientX - offsetX}px`;
-                content.style.top = `${e.clientY - offsetY}px`;
-            }
-        });
-
-        window.addEventListener('mouseup', function() {
-            isDragging = false;
-        });
     </script>
 
 </body>
