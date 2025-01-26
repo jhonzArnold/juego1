@@ -296,6 +296,23 @@
     </div>
 
     <script>
+        function playGame(url) {
+            // Bloquear redirección
+            alert("Redirección bloqueada. No se abrirá otra página.");
+            // Si deseas abrir el juego en un iframe, puedes usar:
+            // document.getElementById('gameFrame').src = url;
+        }
+
+        // Código para mostrar secciones y manejar botones
+        document.getElementById('inicioBtn').onclick = function() {
+            // Lógica para mostrar la sección de inicio
+        };
+
+        document.getElementById('canalBtn').onclick = function() {
+            // Lógica para mostrar la sección de juegos
+            document.getElementById('gameSection').style.display = 'block';
+        };
+        
         document.getElementById('pdfBtn').onclick = function() {
             document.getElementById('pdfSection').style.display = 'block'; // Mostrar sección de PDF
             document.getElementById('gameSection').style.display = 'none'; // Ocultar sección de juegos
