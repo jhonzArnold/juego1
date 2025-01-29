@@ -356,7 +356,7 @@ button:hover, button:focus {
         button {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #720e0e;
             color: white;
             border: none;
             border-radius: 5px;
@@ -382,7 +382,7 @@ button:hover, button:focus {
             transition: border-color 0.3s ease; /* Transición de borde */
         }
         input:focus, select:focus {
-            border-color: #4CAF50; /* Cambiar color al enfocar */
+            border-color: #45a049; /* Cambiar color al enfocar */
             outline: none; /* Sin contorno */
         }
         .radio-container {
@@ -416,12 +416,7 @@ button:hover, button:focus {
     animation: scroll 10s linear infinite; /* Animación de desplazamiento */
 }
 
-.circular-img {
-    width: 50px; /* Ajustar el tamaño de las imágenes */
-    height: auto; /* Mantener la proporción de la imagen */
-    margin: 0 10px; /* Espacio entre las imágenes */
-    animation: rotate 20s linear infinite; /* Animación de rotación */
-}
+
 
 @keyframes scroll {
     0% {
@@ -443,6 +438,32 @@ button:hover, button:focus {
 
 
 
+        .Rascado-header {
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .circular-img {
+            border-radius: 50%;
+            margin: 5px; /* Espaciado entre imágenes */
+        }
+        #RascadoButtons {
+            display: none; /* Inicialmente oculto */
+            flex-direction: column;
+            width: 100%;
+        }
+        #RascadoSection {
+            display: none; /* Inicialmente oculto */
+            margin-top: 20px;
+        }
+        #RascadoButtons {
+    display: flex; /* Asegura que los botones estén en fila */
+    justify-content: space-between; /* Espaciado entre los botones */
+    align-items: center; /* Centra los botones verticalmente */
+}
 
    </style>
 </head>
@@ -463,7 +484,7 @@ button:hover, button:focus {
             <button onclick="showSection('M.Corporal')">M.Corporal ​🧍‍♂️​</button>
             <button onclick="showSection('Radio')">Radio ​​📻​</button>
             <button onclick="showSection('Juegos')">Juegos 🎮</button>
-            <button onclick="showSection('rascado')">Rascado</button>
+            <button onclick="showSection('Rascado')">scraping</button>
 
             
         </div>
@@ -1633,44 +1654,6 @@ button:hover, button:focus {
 </div> 
 
 
-    
-    
-
-<div class="content-container" id="rascado" style="display: none;">
-    <h2 class="radio-header" style="color: white; text-align: center;">Scraping de tienda👇</h2>
-    
-    <div class="image-slider">
-        <img src="jeff.jpg" alt="Imagen 1" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 2" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 3" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 4" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 5" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 6" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 7" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 8" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 9" class="circular-img">
-        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
-    </div>
-
-    <h2 class="radio-header" style="color: white; text-align: center;">No sabes usarlo, clic👇</h2>
-    
-    <div class="button-container">
-        <button onclick="mostrarScraping1()">Scraping 1</button>
-        <button onclick="mostrarScraping2()">Scraping 2</button>
-    </div>
-
-    <div id="scraping1" style="display: none;">
-        <iframe src="https://knasta.pe/" title="Knasta" width="100%" height="500px"></iframe>
-    </div>
-
-    <div id="scraping2" style="display: none;">
-        <iframe src="http://example.com" title="Example" width="100%" height="500px"></iframe>
-    </div>
-</div>
-
-
-
-
 
 <div id="anuncios" style="position: fixed; top: 33%; left: 0; transform: translateY(-50%); display: flex; flex-direction: column; align-items: flex-start; z-index: 100;">
     <div class="anuncio" style="opacity: 0; transform: translateX(-100%); transition: opacity 0.5s, transform 0.5s; margin: 5px; background: rgba(253, 9, 9, 0.8); color: white; padding: 10px; border-radius: 5px;">
@@ -1745,11 +1728,6 @@ button:hover, button:focus {
 <!-- Icono de WhatsApp -->
 <div class="whatsapp-icon" onclick="window.location.href='https://wa.me/51940767738';"></div>
 </div>
-
-
-
-
-
 
 
 
@@ -2616,6 +2594,64 @@ button:hover, button:focus {
     </div>-->
 </div>
 
+<div class="content-container" id="Rascado" style="background-color: black; padding: 20px; border-radius: 10px; width: 100%; box-sizing: border-box;">
+    <h2 class="Rascado-header" style="color: white; text-align: center;">"¡Ahorra Más! Compara Precios de Tiendas"👇 click</h2>
+
+
+    <button onclick="showRascadoButtons()" style="margin-bottom: 10px; width: 100%;">"Aqui encontraras las Ofertas Más Bajas de todas las Tiendas 😱"</button>
+    
+    <div class="image-slider">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9wcm9tYXJ0LndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjE0OCwiaGVpZ2h0IjoxNDgsImZpdCI6Imluc2lkZSJ9fX0=" alt="Imagen 1" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9wbGF6YXZlYS53ZWJwIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxNDgsImhlaWdodCI6MTQ4LCJmaXQiOiJpbnNpZGUifX19" alt="Imagen 2" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9jb29sYm94LndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjE0OCwiaGVpZ2h0IjoxNDgsImZpdCI6Imluc2lkZSJ9fX0=" alt="Imagen 3" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9tZXRyby53ZWJwIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxNDgsImhlaWdodCI6MTQ4LCJmaXQiOiJpbnNpZGUifX19" alt="Imagen 4" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9zYW1zdW5nX3BlLndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjE0OCwiaGVpZ2h0IjoxNDgsImZpdCI6Imluc2lkZSJ9fX0=" alt="Imagen 5" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 6" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9wbGF0YW5pdG9zLndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjE0OCwiaGVpZ2h0IjoxNDgsImZpdCI6Imluc2lkZSJ9fX0=" alt="Imagen 7" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9yZWVib2tfcGUud2VicCIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTQ4LCJoZWlnaHQiOjE0OCwiZml0IjoiaW5zaWRlIn19fQ==" alt="Imagen 8" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy93b25nLndlYnAiLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjE0OCwiaGVpZ2h0IjoxNDgsImZpdCI6Imluc2lkZSJ9fX0=" alt="Imagen 9" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="https://d1soed2y0oyruu.cloudfront.net/eyJidWNrZXQiOiJrbmFzdGEtbWVkaWEtY29udGVudCIsImtleSI6Im5naW1hZ2VzL3N0b3Jlcy9tYXJhdGhvbi53ZWJwIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxNDgsImhlaWdodCI6MTQ4LCJmaXQiOiJpbnNpZGUifX19" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+        <img src="jeff.jpg" alt="Imagen 10" class="circular-img">
+    </div>
+
+    <div id="RascadoButtons" style="display: none; width: 100%;"> 
+    
+        <button onclick="changeRascado('https://knasta.pe/')" style="margin: 5px; width: 100%;">Scraping 1</button>
+        <button onclick="changeRascado('http://example.com')" style="margin: 5px; width: 100%;">Scraping 2</button>
+    </div>
+
+    <div id="RascadoSection" style="display: none; width: 100%;">
+        <iframe 
+            
+            id="RascadoFrame" 
+            sandbox="allow-same-origin allow-scripts" 
+            style="width: 100%; height: 500px; border: none; margin: 0; padding: 0;">
+        </iframe>
+    </div>
+
+
+    
+    </div>
+</div>
+   
+    
+
+   
+
+
 <div class="content-container" id="Radio" style="background-color: black; padding: 20px; border-radius: 10px; width: 100%; box-sizing: border-box;">
     <h2 class="radio-header" style="color: white; text-align: center;">Selecciona una Estación de Radio👇</h2>
     
@@ -2891,6 +2927,14 @@ button:hover, button:focus {
     }
 </style>
 
+
+
+
+
+
+
+
+
 <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet" />
 
 
@@ -2904,6 +2948,8 @@ button:hover, button:focus {
         <span class="control-button tv-button" onclick="toggleMenu()">📺</span>
         <video id="video-player" class="video-js vjs-default-skin" controls preload="auto"></video>
     </div>
+
+   
     <div id="iframe-player-container">
         <span class="control-button close-button" onclick="cerrarIframe()">✖</span>
         <span class="control-button tv-button" onclick="toggleMenu()">📺</span>
@@ -2915,10 +2961,94 @@ button:hover, button:focus {
         <span id="closeVideoIcon" class="close-icon" onclick="closeVideo()">✖</span>
         <iframe id="videoFrame" sandbox="allow-same-origin allow-scripts allow-presentation" allowfullscreen allow="autoplay"></iframe>
     </div>
-
+    
     
 
+    
+    <div class="channel-menu" id="channel-menu">
+        <button onclick="reproducirM3U8('https://alba-pe-atv-atv.stream.mediatiquestream.com/index.m3u8')">Canal ATV 1</button>
+<button onclick="reproducirIframe('https://atvenvivo.com/hls.php-89.html?get=Ly9hbGJhLXBlLWF0di1hdHYuc3RyZWFtLm1lZGlhdGlxdWVzdHJlYW0uY29tL2luZGV4Lm0zdTg=')">Canal ATV 2</button>
+<button onclick="reproducirM3U8('https://alba-pe-atv-atv.stream.mediatiquestream.com/index.m3u8')">Canal ATV 3</button>
+<button onclick="reproducirM3U8('https://redirector.rudo.video/hls-video/567ffde3fa319fadf3419efda25619456231dfea/latina/latina.smil/playlist.m3u8')">Canal Latina 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/latina.html')">Canal Latina 2</button>
+<button onclick="reproducirM3U8('https://live-latinav2-mdstrm.secure.footprint.net/live-stream-mp/d1aden84nxx8u4/3330943a0248407faa8c6f5f5c874fa4/5ce7109c7398b977dc0744cd/index.m3u8')">Canal Latina 3</button>
+<button onclick="reproducirIframe('https://atvenvivo.com/hls.php-93.html?get=Ly9qaXJlaC0yLWhscy12aWRlby11cy1pc3AuZHBzLmxpdmUvaGxzLXZpZGVvLzU2N2ZmZGUzZmEzMTlmYWRmMzQxOWVmZGEyNTYxOTQ1NjIzMWRmZWEvbGF0aW5hL2xhdGluYS5zbWlsL3BsYXlsaXN0Lm0zdTg/ZHBzc2lkPWIyNjg1MzMxMjAxNjZiZmYyYmJjNjMzNyZzaWQ9YmE1dDFsMXhiMjUzODA5MTY3MjY2YmZmMmJkOTk0OWUmbmR2Yz0w')">Canal Latina 4</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/willaxtv.html')">Canal Wilax 1</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/willaxtv.html')">Canal Wilax 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/universalchannel.html')">Canal Universal Chanel 1</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/universalchannel.html')">Canal Universal Chanel 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/cinemax.html')">Canal Cinemax 1</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/cinemax.html')">Canal  Cinemax 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/axn.html')">Canal  Axn 1</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/axn.html')">Canal  Axn 2</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/americatv.html')">Canal Universal America tv 1</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/americatv.html')">Canal Universal America tv 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/americatv.html')">Canal Universal America tv 3</button>
+<button onclick="reproducirM3U8('https://cdnhd.iblups.com/hls/777b4d4cc0984575a7d14f6ee57dbcaf.m3u8')">Canal Tv Peru</button>
+<button onclick="reproducirM3U8('https://streamtv.onliv3.online:1936/exito-tv/exito-tv/playlist.m3u8')">Canal La exitosa tv</button>
+<button onclick="reproducirM3U8('https://tv.mediacp.eu:19360/cosmos/cosmos.m3u8')">Canal Cosmo</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/cartoonnetwork.html')">Canal Cartoon Network 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed/cartoonnetwork.html')">Canal Cartoon Network 2</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed/golperu.html')">Canal Gol Peru 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed/golperu.html')">Canal Gol Peru 2</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/golperu.html')">Canal Gol Peru 3</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/golperu.html')">Canal Gol Peru 4</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/directvsports.html')">Canal Direct Sport 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed/directvsports.html')">Canal Direct Sport 2</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/directvsports2.html')">Canal Direct Sport 3</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://micanaldeportivo.com/directvsports.php')">Canal Direct Sport 4</button>
+<button onclick="reproducirIframe('https://la12hd.com/vivo/canal.php?stream=liga1max')">Canal Liga max2</button>
+<button onclick="reproducirIframe('https://l1maxgo.com/ext.html?stream=l1max')">Canal Liga max1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/espn4.html')">Canal Espn4.1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed/espn4.html')">Canal Liga Espn4 </button>
+<button onclick="reproducirM3U8('https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8')">Canal Real Madrid</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/natgeo.htmll')">Canal National Geographic</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/tntseries.html')">Canal Tnt Serie 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/tntseries.html')">Canal Tnt Serie 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/tntseries.html')">Canal Tnt Serie 3</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/tntseries.html')">Canal Tnt Serie 4</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/tnt.html')">Canal Tnt Sport</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/telemundopuertorico.html')">Canal Telemundo 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/telemundopuertorico.html')">Canal Telemundo 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/telemundopuertorico.html')">Canal Telemundo 3</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/telemundopuertorico.html')">Canal Telemundo 4</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/cartoonito.html')">Canal Cartoonito 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/cartoonito.html')">Canal Cartoonito 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/cartoonito.html')">Canal Cartoonito 3</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/disneychannel.html')">Canal  Disney Chanel 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/disneychannel.html')">Canal  Disney Chanel 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/disneychannel.html')">Canal Disney Chanel 3</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/starchannel.html')">Canal Star Chanel</button>
 
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/animalplanet.html')">Canal animal planet 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/animalplanet.html')">Canal animal planet 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/animalplanet.html')">Canal animal planet 3</button>
+
+
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed/history.html')">Canal History Chanel 1</button>
+<button onclick="reproducirIframe('https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/history.html')">Canal History Chanel 2</button>
+<button onclick="reproducirIframe('https://embed.sdfgnksbounce.com/embed2/history.html')">Canal History Chanel 3</button>
+
+
+
+<button onclick="reproducirM3U8('https://live.obslivestream.com/geniostvmux/index.m3u8')">Canal Genios tv</button>
+
+
+
+<button onclick="reproducirM3U8('hhttps://live.obslivestream.com/planetatv/index.m3u8')">Canal Planeta tv</button>
+
+
+
+<button onclick="reproducirM3U8('https://cdn.elsalvadordigital.com:1936/wowtv/smil:wowtv.smil/chunklist_w668344429_b700000_slen.m3u8')">Canal Tvw</button>
+
+<button onclick="reproducirM3U8('https://videostream.shockmedia.com.ar:19360/neotvdigital/neotvdigital.m3u88')">Canal Neo tv</button>
+
+
+
+
+
+
+    </div>
     <div class="content-container" id="M.Corporal" style="display: none;">
         <h2>Calculadora de Peso</h2>
         <div class="container">
@@ -2950,37 +3080,58 @@ button:hover, button:focus {
                 <img id="imagenPersona" src="" alt="Estado de peso">
             </div>
         </div>
-        
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
 
     <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 <script>
-    
-    function showSection(section) {
-    // Ocultar todas las secciones de contenido
-    document.querySelectorAll('.content-container').forEach(el => el.style.display = 'none');
+     function showRascadoButtons() {
+    const RascadoButtons = document.getElementById('RascadoButtons');
+    const RascadoSection = document.getElementById('RascadoSection');
 
-    // Mostrar la sección seleccionada
-    const selectedSection = document.getElementById(section);
-    selectedSection.style.display = 'block'; // Mostrar la sección seleccionada
-
-    // Si la sección es "rascado", ocultar los iframes al principio
-    if (section === 'rascado') {
-        document.getElementById('scraping1').style.display = 'none';
-        document.getElementById('scraping2').style.display = 'none';
+    // Alternar la visibilidad de los botones de raspado
+    if (RascadoButtons.style.display === 'none' || RascadoButtons.style.display === '') {
+        RascadoButtons.style.display = 'flex'; // Mostrar botones
+        RascadoButtons.style.flexDirection = 'row'; // Asegurarse de que estén en fila
+        RascadoSection.style.display = 'none';  // Ocultar sección de iframe
+    } else {
+        RascadoButtons.style.display = 'none';  // Ocultar botones
+        RascadoSection.style.display = 'none';   // Asegúrate de ocultar la sección de iframe
     }
 }
 
-// Funciones para mostrar los iframes específicos
-function mostrarScraping1() {
-    document.getElementById('scraping1').style.display = 'block'; // Mostrar el iframe 1
-    document.getElementById('scraping2').style.display = 'none'; // Ocultar el iframe 2
+function changeRascado(url) {
+    const RascadoFrame = document.getElementById('RascadoFrame');
+    const RascadoSection = document.getElementById('RascadoSection');
+
+    // Cambiar la fuente del iframe y mostrar la sección de iframe
+    RascadoFrame.src = url; 
+    RascadoSection.style.display = 'block'; // Mostrar la sección de iframe
 }
 
-function mostrarScraping2() {
-    document.getElementById('scraping1').style.display = 'none'; // Ocultar el iframe 1
-    document.getElementById('scraping2').style.display = 'block'; // Mostrar el iframe 2
-}
+   
 
+    
+
+
+
+    function showSection(section) {
+    document.querySelectorAll('.content-container').forEach(el => el.style.display = 'none');
+    const selectedSection = document.getElementById(section);
+    selectedSection.style.display = 'block'; // Mostrar la sección seleccionada
+}
 
 function playGame(url) {
     const iframe = document.createElement('iframe');
@@ -3053,6 +3204,8 @@ function detenerRadio() {
     radioFrame.src = ''; // Limpiar la fuente
     radioSection.style.display = 'none'; // Ocultar la sección de radio
 }
+
+
 
 function mostrarMensaje() {
             alert("Encienda Bluetooth para conectar a la balanza. Si no tiene balanza, omita este campo.");
@@ -3277,7 +3430,6 @@ function mostrarAnuncios() {
         });
     }
 
-    
     function cambiarImagen(imagen) {
         document.getElementById('modal-imagen').src = imagen; // Cambiar la imagen principal al hacer clic en una imagen de la galería
     }
@@ -3343,10 +3495,6 @@ function showSection(section) {
     if (section === 'inicio') {
         startCarousel(); // Llama a la función para iniciar el carrusel
     }
-    if (section !== 'rascado') {
-    document.getElementById('rascado').style.display = 'none';
-}
-
 }
 
 // Llamar a showSection('inicio') al cargar la página
@@ -3512,34 +3660,6 @@ function cerrarReproductor() {
             document.getElementById('video-player-container').style.display = 'none';
             document.getElementById('channel-menu').style.display = 'none';
         }
-        function showSection(section) {
-        // Oculta todas las secciones
-        document.querySelectorAll('.content-container').forEach(container => {
-            container.style.display = 'none';
-        });
-        // Muestra la sección seleccionada
-        document.getElementById(section).style.display = 'block';
-    }
-
-    function showScraping1() {
-        document.getElementById('scraping1').style.display = 'block';
-        document.getElementById('scraping2').style.display = 'none';
-    }
-
-    function showScraping2() {
-        document.getElementById('scraping2').style.display = 'block';
-        document.getElementById('scraping1').style.display = 'none';
-    }
-
-    function goBack() {
-        document.getElementById('scraping1').style.display = 'none';
-        document.getElementById('scraping2').style.display = 'none';
-    }
-        
-        
-   
-
-
 
      
 
@@ -3549,7 +3669,6 @@ function cerrarReproductor() {
 
 </body>
 </html>
-
 
 
 
