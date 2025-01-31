@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrenos de Películas</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; position: relative; }
+        .movie-card { border: 1px solid #ddd; padding: 10px; margin: 10px 0; position: relative; text-align: center; }
+        .delete-btn { position: absolute; top: 5px; right: 5px; background: red; color: white; border: none; cursor: pointer; padding: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Estreno de Película</h1>
+    <input type="text" id="name" placeholder="Nombre">
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <input type="text" id="link" placeholder="Enlace de la película"> <!-- Cambiado a enlace -->
+    <button onclick="addMovie()">Agregar Película</button>
+    
+    <div id="movies"></div>
+
+    <script>
+        let movies = JSON.parse(localStorage.getItem("movies")) || [];
+        const token = "7625922907:AAEUPC4KQMeNMiNSryufzZjqvGfLbdlXPLs";  // Reemplaza con tu token
+        const chatID = "-4779812770";  // Reemplaza con tu ID de chat
+        const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+        function addMovie() {
+            const name = document.getElementById("name").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const link = document.getElementById("link").value; // Cambiado a enlace
+            
+            if (!name || !date || !time || !link) {
+                alert("Todos los campos son obligatorios");
+                return;
+            }
+            
+            const movie = { name, date, time, link }; // Cambiado a enlace
+            movies.push(movie);
+            localStorage.setItem("movies", JSON.stringify(movies));
+            displayMovies();
+            checkMovieNotifications(); // Inicia la verificación de notificaciones
+        }
+
+        function deleteMovie(index) {
+            movies.splice(index, 1);
+            localStorage.setItem("movies", JSON.stringify(movies));
+            displayMovies();
+        }
+
+        function displayMovies() {
+            const moviesDiv = document.getElementById("movies");
+            moviesDiv.innerHTML = "";
+            movies.forEach((movie, index) => {
+                moviesDiv.innerHTML += `
+                    <div class="movie-card">
+                        <button class="delete-btn" onclick="deleteMovie(${index})">X</button>
+                        <h2>${movie.name}</h2>
+                        <p>Fecha: ${movie.date}</p>
+                        <p>Hora: ${movie.time}</p>
+                        <p><a href="${movie.link}" target="_blank">Ver película</a></p> <!-- Enlace a la película -->
+                    </div>
+                `;
+            });
+        }
+
+        function sendTelegramNotification(movie) {
+            const message = `🎬 ¡Estreno hoy! \n\nNombre: ${movie.name} \nFecha: ${movie.date} \nHora: ${movie.time} \nEnlace: ${movie.link}`; // Cambiado a enlace
+            
+            fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chat_id: chatID, text: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.ok) {
+                    console.error("Error enviando mensaje a Telegram:", data);
+                } else {
+                    alert("Mensaje enviado a Telegram con éxito.");
+                }
+            })
+            .catch(error => console.error("Error en la solicitud a Telegram:", error));
+        }
+
+        function checkMovieNotifications() {
+            setInterval(() => {
+                const now = new Date();
+                const currentDate = now.toISOString().split('T')[0]; // Obtiene la fecha actual
+                const currentTime = now.toTimeString().split(' ')[0].slice(0, 5); // Obtiene la hora actual en formato HH:MM
+                
+                movies.forEach(movie => {
+                    if (movie.date === currentDate && movie.time === currentTime) {
+                        sendTelegramNotification(movie);
+                    }
+                });
+            }, 60000); // Verifica cada minuto
+        }
+
+        displayMovies();
+    </script>
+</body>
+</html>
 
 
 
